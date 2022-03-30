@@ -1,8 +1,6 @@
 ### Práctica: Instalación de Drupal
 
-Práctica 2 [](drupal/apa_php_mdb.md)
-
-Fuente: https://www.iteramos.com/pregunta/7094/enlace-relativo-a-github-en-el-archivo-markdown
+ [Práctica 2](drupal/apa_php_mdb.md)
 
 ##### - Descarga y configuración previa
 Levanto y actualizo el sistema
