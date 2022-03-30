@@ -106,7 +106,6 @@ Configuro la variable trusted_host_patterns:
  */
 ...
 ```
-# ****************** DUDA DOMINIO *************************
 Este bloque de configuración está desactivado por completo en forma de comentarios, así que realizo la configuración fuera de dicho bloque. Añado a la variable sólo aquellos dominios a los que Drupal debe responder.
 
 En mi caso al ser un servidor Ubuntu 20.04 LTS accesible en el dominio ubuntu2004.local.lan, lo configuro así
