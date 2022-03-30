@@ -23,7 +23,6 @@ Como el nombre del nuevo subdirectorio creado contiene el número de versión en
 ```
 sudo ln -s /var/www/drupal-9.3.9 /var/www/drupal
 ```
-# Sustituye en el comando anterior 9.3.9 por la versión que has descargado (la tecla tabulador ayudará con el autocompletado).
 Cambio la propiedad del directorio de instalación y de su contenido al usuario con el que corre el servicio web en Ubuntu 20.04 ya que Drupal 9 necesita escribiren él
 ```
 sudo chown -R www-data: /var/www/drupal/
@@ -64,7 +63,7 @@ create database drupal9 charset utf8mb4 collate utf8mb4_unicode_ci;
 ```
 Como voy a usar MariaDB creo el usuario de forma trivial
 ```
-create user drupal9@localhost identified by 'XXXXXXXX';
+create user drupal9@localhost identified by 'sergio';
 ```
 Concedo los privilegios al usuario sobre la base y cierro la conexión
 ```
