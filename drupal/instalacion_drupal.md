@@ -1,6 +1,6 @@
 ### Práctica: Instalación de Drupal
 
- [Práctica 2](drupal/apa_php_mdb.md)
+ [Práctica 2](apa_php_mdb.md)
 
 ##### - Descarga y configuración previa
 Levanto y actualizo el sistema
