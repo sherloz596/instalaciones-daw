@@ -1,6 +1,8 @@
 ### Práctica: Instalación de Drupal
-
- [Práctica 2](apa_php_mdb.md)
+##### - Configuración previa del etorno LAMP e instalación de Wordpress
+Previa a la realización de esta práctica he configurado un entorno LAMP con la práctica:
+[Preparar un servidor con apache2 + php + mariadb](apa_php_mdb.md)
+Además he realizado también la práctica: [Instalación de Wordpress](instalacion_wordpress.md)
 
 ##### - Descarga y configuración previa
 Levanto y actualizo el sistema
