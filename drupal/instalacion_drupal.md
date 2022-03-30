@@ -70,11 +70,15 @@ Concedo los privilegios al usuario sobre la base y cierro la conexión
 grant all privileges on drupal9.* to drupal9@localhost;
 exit
 ```
-# **************** DUDA PHP *********************
+##### - PHP
+Instalo las extensiones necesarias
+```
+sudo apt install -y php-apcu php-gd php-mbstring php-uploadprogress php-xml
+```
 ##### - Instalador web
 Accedo al instalador web
 ```
-http://localhost:8080/drupal
+http://drupal.miservidor.com:8080/drupal
 ```
 Sigo los pasos del instalador:
 - En la página inicial del instalador web elijo el idioma de la instalación
