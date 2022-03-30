@@ -55,4 +55,7 @@ Tu correo electrónico: admin@exam.es
 ```
 Hago login con las credenciales introducidas y accedo al panel de administración:
 
-Accedo a wordpress desde http://localhost:8080/wordpress
+Accedo a wordpress desde
+```
+http://localhost:8080/wordpress
+```
