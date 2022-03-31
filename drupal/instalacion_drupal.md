@@ -86,16 +86,16 @@ http://drupal.miservidor.com:8080/drupal
 ```
 Sigo los pasos del instalador:
 - En la página inicial del instalador web elijo el idioma de la instalación
-![](drupal1.png)
+![](drupal1.PNG)
 - Selecciono el perfil de instalación. En mi caso estándar
 - El instalador comprueba los requisitos para la instalación 
 - Configuración de la conexión al servicio de bases de datos. Elijo el configurado anteriormente e introduzco los datos de conexión.
-![](drupal2.png)
+![](drupal2.PNG)
 - Comienza el proceso de intalación
-![](drupal3.png)
+![](drupal3.PNG)
 - Inicializa la base de datos, instala módulos, traducciones, etc y pide la información básica de identificación del nuevo sitio web y los datos del usuario administrador
 - La instalación ultima la actualización de traducciones y presenta el nuevo sitio Drupal 9
-![](drupal4.png)
+![](drupal4.PNG)
 ##### - Post-instalación
 Edito el archivo de configuración de Drupal settings.php para proteger a mi sitio contra ataques de tipo «HTTP Host Header«
 ```
