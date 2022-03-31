@@ -54,8 +54,9 @@ Contraseña: adminDAW004
 Tu correo electrónico: admin@exam.es
 ```
 Hago login con las credenciales introducidas y accedo al panel de administración:
-
+![](wp1.PNG)
 Accedo a wordpress desde
 ```
 http://localhost:8080/wordpress
 ```
+![](wp2.PNG)
