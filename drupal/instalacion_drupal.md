@@ -27,6 +27,10 @@ Cambio la propiedad del directorio de instalación y de su contenido al usuario 
 ```
 sudo chown -R www-data: /var/www/drupal/
 ```
+Creo el virtual host
+```
+drupal.miservidor.com
+```
 ##### - Servicio web
 Activo los módulos de apache de los que podría hacer uso Drupal
 ```
@@ -55,7 +59,7 @@ sudo systemctl restart apache2
 ##### - Base de datos
 Conecto al servicio con el cliente mysql y un usuario administrador
 ```
-mysql -u root -p
+sudo mysql -u root -p
 ```
 Creo la base de datos
 ```
