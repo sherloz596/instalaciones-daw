@@ -12,6 +12,7 @@ Vagrant.configure("2") do |config|
   
 end
 ```
+## PASO 1: Poner en marcha gunicorn con un entorno virtual
 En /home/vagrant/ clono el repositorio
 ```
 $ git clone https://github.com/josedom24/flask_temperaturas.git
@@ -42,11 +43,13 @@ Activo la aplicación en el servidor gunicorn y le indico que lo saque por el pu
 ```
 gunicorn app:app -b :8080
 ```
+## PASO 2: Conectar como un proxy gunicorn con Apache
+Para hacerlo proxy:
 Habilito los módulos proxy
 ```
 sudo a2enmod proxy proxy_http
 ```
-Creo un virtual host
+Creo un virtual host con la directriz ProxyPass, indicando que todo lo que vaya a la raíz lo coja apache del puerto 8080 que es donde sirve gunicorn
 ```
 <VirtualHost *:80>
         ServerName temperaturas.local
@@ -58,8 +61,55 @@ Creo un virtual host
 </VirtualHost>
 ```
 Habilito el sitio y reinicio apache
+```
+sudo a2ensite /etc/apache2/sites.available/temperaturas.conf
+sudo service apache2 reload
+```
+Compruebo funcionamiento en la dirección
+```
+http://temperaturas.local:8000/
+```
+Cambio la configuración de vagrant y reinicio la máquina virtual para que todos los accesos sean a través de apache
+  ```
+  config.vm.network "forwarded_port", guest: 80, host: 8000
+  #  config.vm.network "forwarded_port", guest: 8080, host: 8080
+```
+Vuelvo a lanzar vagrant y me conecto a la máquina
+Activo nuevamente el entorno virtual y lanzo gunicorn por el puerto 8080
+```
+source env/bin/activate
+gunicorn app:app -b :8080
+```
+Edito el sitio temperaturas.conf para que los datos de los estáticos no los sirva gunicorn y los sirva directamente apache añadiendo la directriz:
+```
+ProxyPass /static/ !
+Alias /static/ /home/vagrant/flask_temperaturas/static
+```
+También hay que dar permisos al directorio
+```
+<Directory /home/vagrant/flask_temperaturas/static>
+    Require all granted
+</Directory>
+```
+El virtualhost queda de la siguiente manera:
+```
+<VirtualHost *:80>
+        ServerName temperaturas.local
 
-Instala y configura el módulo wsgi para apache2
+        ServerAdmin webmaster@localhost
+        DocumentRoot /home/vagrant/flask_temperaturas/
+        
+        ProxyPass /static/ !
+        ProxyPass / http://localhost:8080/
+        Alias /static/ /home/vagrant/flask_temperaturas/static
+
+        <Directory /home/vagrant/flask_temperaturas/static>
+            Require all granted
+        </Directory>
+</VirtualHost>
 ```
-apt install libapache2-mod-wsgi-py3
+Reinicio apache
 ```
+sudo systemctl restart apache2
+```
+## PASO 3: Programarlo como un servicio
