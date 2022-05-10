@@ -1,3 +1,17 @@
+ruta hosts:
+```
+C:\Windows\System32\drivers\etc
+```
+Configuración Vagrant file
+```
+Vagrant.configure("2") do |config|
+  config.vm.box = "bento/ubuntu-20.04"
+
+  config.vm.network "forwarded_port", guest: 80, host: 8000
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
+  
+end
+```
 En /home/vagrant/ clono el repositorio
 ```
 $ git clone https://github.com/josedom24/flask_temperaturas.git
@@ -43,7 +57,7 @@ Creo un virtual host
 
 </VirtualHost>
 ```
-
+Habilito el sitio y reinicio apache
 
 Instala y configura el módulo wsgi para apache2
 ```
