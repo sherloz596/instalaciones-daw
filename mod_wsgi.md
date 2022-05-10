@@ -113,3 +113,30 @@ Reinicio apache
 sudo systemctl restart apache2
 ```
 ## PASO 3: Programarlo como un servicio
+En el directorio donde están todos los servicios:
+```
+/etc/systemd/system/
+```
+Creo uno nuevo servicio llamado temperaturas.service con la siguiente configuración:
+```
+Description=gunicorn daemon
+[Service]
+User=vagrant
+Group=vagrant
+WorkingDirectory=/home/vagrant/flask_temperaturas/
+
+ExecStart=/home/vagrant/flask_temperaturas/env/bin/gunicorn \
+    --workers=4 \
+    --bind=127.0.0.1:8080 \
+    --log-file=/home/vagrant/flask_temperaturas/gunicorn.log \
+    app:app
+    
+[Install]
+WantedBy=multi-user.target
+```
+Habilito el servicio creado y lo inicio
+```
+sudo systemctl enable temperaturas
+sudo systemctl start temperaturas
+```
+Salgo de la máquina virtual y la vuelvo a iniciar para comprobar que funciona
